@@ -1,0 +1,13 @@
+logs:
+  - type: file
+    path: /var/log/nginx/access.log
+    service: web-analytics
+    source: nginx
+    log_processing_rules:
+    - type: include_at_match
+      name: include_499_599
+      pattern: \s[4-5][0-9][0-9]\s
+  - type: file
+    path: /var/log/nginx/error.log
+    service: web-analytics
+    source: nginx
